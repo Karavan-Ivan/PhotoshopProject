@@ -5,7 +5,6 @@ body {
     font-family: 'Roboto', sans-serif;
     background-image: url(image/patt.png);
 }
-
 .container {
     width: 1200px;
     padding-left: 15px;
@@ -30,15 +29,10 @@ body {
 .col-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }
 .col-2 {
-    display: flex;
     flex: 0 0 16.66667%;
     max-width: 16.66667%;
-    line-height: 50px;
 }
 .col-3 {
     flex: 0 0 25%;
@@ -52,11 +46,13 @@ body {
     flex: 0 0 50%;
     max-width: 50%;
 }
+.col-8 {
+    flex: 0 0 66.66666%;
+    max-width: 66.66666%;
+}
 .col-9 {
     flex: 0 0 75%;
     max-width: 75%;
-    padding-left: 0;
-    padding-right: 0;
 }
 .col-12 {
     flex: 0 0 100%;
@@ -75,9 +71,8 @@ header .col-3 {
 }
 .menu li {
     width: 25%;
-}
-.menu li a {
     position: relative;
+    height: 50px;
 }
 i {
     border: solid rgb(44, 113, 184);
@@ -93,7 +88,7 @@ i {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
-.menu li:last-child a {
+.menu > li:last-child a {
     border-right: 1px solid rgb(44, 113, 184);
 }
 /* .menu li:nth-child(2)::after {
@@ -109,7 +104,6 @@ i {
 } */
 .menu li a {
     display: block;
-    height: 50px;
     text-align: center;
     line-height: 50px;
     text-decoration: none;
@@ -121,7 +115,7 @@ i {
     background-color: rgb(44, 113, 184);
     color: rgb(255, 255, 255);
 }
-.menu a:hover i {
+.menu li a:hover i {
     border: solid rgb(255, 255, 255);
     border-width: 0 2px 2px 0;
     display: inline-block;
@@ -130,6 +124,42 @@ i {
     top: 20px;
     right: 5px;
     position: absolute;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+.menu li:hover .dropdown {
+    display: block;
+}
+.dropdown li {
+    width: 200%;
+    background-color: rgb(44, 113, 184);
+}
+.dropdown li a {
+    color: rgb(255, 255, 255);
+    border: none;
+    text-align: left;
+    left: 23px;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    width: calc(100% - 23px);
+}
+.dropdown li:hover {
+    background-color: rgb(255, 255, 255);
+}
+.dropdown li:hover a {
+    background-color: rgb(255, 255, 255);
+    color: rgb(44, 113, 184);
+    position: absolute;
+}
+header .col-2 {
+    display: flex;
+    line-height: 50px;
+    flex: 0 0 18.66667%;
+    max-width: 18.66667%;
 }
 form {
     display: flex;
@@ -159,13 +189,17 @@ form input::placeholder {
     color: rgb(44, 113, 184);
     padding-left: 15px;
 }
+.header .col-1 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 0 0 6.33333%;
+    max-width: 6.33333%;
+}
 .col-1 img {
     background-color: rgb(255, 255, 255);
     padding: 10px 11px 10px 11px;
     display: block;
-}
-.col-1 {
-    position: relative;
 }
 .col-1::before {
     width: 8px;
@@ -175,43 +209,14 @@ form input::placeholder {
     position: absolute;
     content: "4";
     top: -5px;
-    left: 25px;
+    left: 5px;
     font-size: 12px;
     padding: 6px;
     color: rgb(255, 255, 255);
     text-align: center;
     line-height: 8px;
 }
-.dropdown {
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-.menu li:hover .dropdown {
-    display: block;
-}
-.dropdown li {
-    width: calc(98% + 1px);
-    background-color: rgb(44, 113, 184);
-}
-.dropdown li a {
-    color: rgb(255, 255, 255);
-    background-color: rgb(44, 113, 184);
-    border: none;
-    padding-left: 0;
-    height: 40px;
-    line-height: 40px;
-    text-align: left;
-    left: 23px;
-}
-.dropdown li:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(44, 113, 184);
-}
-.dropdown li:hover a {
-    background-color: rgb(255, 255, 255);
-    color: rgb(44, 113, 184);
-}
+
 main {
     display: flex;
     align-items: center;
@@ -221,6 +226,10 @@ main {
     height: 50px;
     margin-left: -15px;
     margin-right: -15px;
+}
+main .col-9 {
+    padding-left: 0;
+    padding-right: 0;
 }
 .filters {
     background-color: rgba(255, 0, 0, 0.50);
@@ -233,56 +242,45 @@ main {
 }
 .category {
     display: flex;
-    padding: 0 15px 50px 15px;
-    justify-content: space-between;
+    padding: 0 0 50px 0;
 }
-.category .col-3 {
-    padding: 0;
+.category .col-4 {
+    height: 40px;
+    align-self: center;
 }
 .categoryname {
     font-weight: bold;
     font-size: 48px;
     color: rgb(255, 255, 255);
 }
-.reflection {
-    height: 40px;
-    box-sizing: border-box;
-}
 .reflection li {
-    background-color: rgb(44, 113, 184);
-    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    height: 40px;
 }
-.reflection li a {
+.reflection > ul > li  {
     position: relative;
 }
 .reflection li a {
     padding-left: 20px;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    height: 40px;
     line-height: 40px;
+    display: block;
+    background-color: rgb(44, 113, 184);
+    border: 1px solid rgb(255, 255, 255);
 }
-.reflection li ul {
+.reflection ul li ul {
     display: none;
     position: absolute;
     z-index: 1;
     width: 100%;
 }
-.reflection li:hover ul {
+.reflection ul li:hover ul {
     display: block;
-}
-.reflection  li ul li {
-    width: 18%;
-}
-.reflection ul li ul li a {
-    height: 40px;
-    line-height: 40px;
-}
-.reflection ul li ul li:hover {
-    background-color: rgb(255, 255, 255);
 }
 .reflection ul li ul li:hover a {
     color: rgb(44, 113, 184);
+    background-color: rgb(255, 255, 255);
 }
 .catalog {
     display: flex;
@@ -290,7 +288,7 @@ main {
     padding-right: -15px;
     flex-wrap: wrap;
 }
-.col-4 {
+.catalog .col-4 {
     display: flex;
     flex-direction: column;
     height: 650px;
@@ -404,3 +402,9 @@ span {
     padding: 10px;
     text-align: left;
 }
+
+/* .menu:after {
+    content: '';
+    display: block;
+    clear: both;
+  } */
