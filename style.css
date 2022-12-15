@@ -496,6 +496,14 @@ span {
 .filters input[type="checkbox"] {
     display: none;
 }
+.filter label {
+    display: flex;
+    font-size: 21px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 25px;
+    align-items: center;
+}
 .filters label::before {
     content: "";
     display: block;
@@ -503,6 +511,7 @@ span {
     width: 10px;
     border: 2px solid rgb(255, 255, 255);
     cursor: pointer;
+    margin-right: 10px;
 }
 .filters input[type="checkbox"]:checked + label::before {
     background-color: rgb(255, 255, 255);
