@@ -301,10 +301,6 @@ main .col-9 {
     padding-left: 0;
     padding-right: 0;
 }
-.filters {
-    background-color: rgba(255, 0, 0, 0.50);
-    height: 840px;
-}
 .steps {
     padding: 30px 15px 30px 15px;
     font-size: 14px;
@@ -446,10 +442,12 @@ span {
 .add form {
     display: flex;
     align-items: center;
-    background-color: rgb(86, 141, 198);
+    background-color: rgba(255, 255, 255, 0.2);
     justify-content: center;
     width: 210px;
     height: 50px;
+    border: none;
+    padding: 0;
 }
 .add form button {
     color: rgb(255, 255, 255);
@@ -457,16 +455,17 @@ span {
     font-size: 21px;
     border: none;
     justify-content: center;
-    background-color: rgb(86, 141, 198);
-    margin-right: 10px;
+    padding-right: 10px;
     height: 50px;
     line-height: 50px;
     text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.2);
+
 }
 .add form img {
     justify-content: flex-end;
     padding: 0;
-    background-color: rgb(86, 141, 198);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .info, .type, .scrsize, .ram {
     padding: 10px;
@@ -475,9 +474,12 @@ span {
 .filters {
     display: flex;
     flex-direction: column;
+    height: 840px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .filter {
     padding: 30px;
+    padding-bottom: 0;
     display: flex;
     flex-direction: column;
 }
@@ -489,9 +491,13 @@ span {
     color: rgb(255, 255, 255);
 }
 .showmore li {
+    text-align: center;
+    margin-top: 25px;
+}
+.showmore li a {
     font-size: 21px;
     color: rgb(255, 255, 255);
-    text-align: center;
+    text-decoration: none;
 }
 .filters input[type="checkbox"] {
     display: none;
@@ -501,8 +507,12 @@ span {
     font-size: 21px;
     color: rgb(255, 255, 255);
     text-align: center;
-    margin-bottom: 25px;
     align-items: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+.filter label:last-child {
+    margin-bottom: 0;
 }
 .filters label::before {
     content: "";
@@ -513,9 +523,42 @@ span {
     cursor: pointer;
     margin-right: 10px;
 }
-.filters input[type="checkbox"]:checked + label::before {
+#laptop:checked ~ .labeltype label:nth-child(1)::before,
+#tablet:checked ~ .labeltype label:nth-child(2)::before {
     background-color: rgb(255, 255, 255);
 }
+#black:checked ~ .labelcolor label:nth-child(1)::before,
+#red:checked ~ .labelcolor label:nth-child(2)::before,
+#green:checked ~ .labelcolor label:nth-child(3)::before,
+#blue:checked ~ .labelcolor label:nth-child(4)::before,
+#orange:checked ~ .labelcolor label:nth-child(5)::before {
+    background-color: rgb(255, 255, 255);
+}
+#gb1:checked ~ .labelram label:nth-child(1)::before,
+#gb2:checked ~ .labelram label:nth-child(2)::before,
+#gb4:checked ~ .labelram label:nth-child(3)::before,
+#gb6:checked ~ .labelram label:nth-child(4)::before,
+#gb8:checked ~ .labelram label:nth-child(5)::before {
+    background-color: rgb(255, 255, 255);
+}
+.filters .submit {
+    background-color: rgb(44, 113, 184);
+    margin: 25px 30px 30px 30px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+}
+.filters .submit button {
+    background-color: rgb(44, 113, 184);
+    color: rgb(255, 255, 255);
+    height: 48px;
+    font-size: 21px;
+    line-height: 50px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 
 /* .menu:after {
     content: '';
